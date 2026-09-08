@@ -1,0 +1,519 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        sans-serif;
+
+    background: #f5f7fb;
+
+    color: #222;
+}
+
+
+.container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 50px 0 80px;
+}
+
+
+/* =========================================
+   标题
+========================================= */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.header h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+}
+
+
+.header p {
+
+    color: #777;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   上传区域
+========================================= */
+
+.upload-box {
+
+    background: white;
+
+    border: 2px dashed #d5d9e2;
+
+    border-radius: 20px;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    transition: 0.2s;
+
+    cursor: pointer;
+}
+
+
+.upload-box:hover {
+
+    border-color: #6c63ff;
+
+    background: #fafaff;
+}
+
+
+.upload-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+
+.upload-box h2 {
+
+    margin: 10px 0;
+}
+
+
+.upload-box p {
+
+    color: #777;
+}
+
+
+.upload-box .format {
+
+    font-size: 13px;
+
+    color: #999;
+}
+
+
+#fileInput {
+
+    display: none;
+}
+
+
+.select-button {
+
+    margin-top: 20px;
+
+    padding: 12px 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #6c63ff;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.select-button:hover {
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   已选择图片
+========================================= */
+
+.selected-section {
+
+    margin-top: 35px;
+}
+
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.section-title h2 {
+
+    margin: 0;
+}
+
+
+#fileCount {
+
+    color: #777;
+}
+
+
+.preview-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(150px, 1fr));
+
+    gap: 15px;
+}
+
+
+.preview-item {
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 10px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,0.05);
+}
+
+
+.preview-item img {
+
+    width: 100%;
+
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+.preview-name {
+
+    font-size: 12px;
+
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   增强按钮
+========================================= */
+
+.augment-button {
+
+    display: block;
+
+    width: 250px;
+
+    margin: 35px auto;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #6c63ff;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.augment-button:disabled {
+
+    background: #c7c9d3;
+
+    cursor: not-allowed;
+}
+
+
+.augment-button:not(:disabled):hover {
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   Loading
+========================================= */
+
+.loading {
+
+    text-align: center;
+
+    margin: 40px 0;
+}
+
+
+.spinner {
+
+    width: 40px;
+
+    height: 40px;
+
+    margin: auto;
+
+    border: 4px solid #eee;
+
+    border-top: 4px solid #6c63ff;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================
+   结果区域
+========================================= */
+
+.result-section {
+
+    margin-top: 50px;
+}
+
+
+.result-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.result-header h2 {
+
+    margin: 0 0 5px;
+}
+
+
+.result-header p {
+
+    margin: 0;
+
+    color: #777;
+}
+
+
+.download-all {
+
+    padding: 12px 22px;
+
+    background: #222;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+}
+
+
+.download-all:hover {
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   单张图片结果
+========================================= */
+
+.result-item {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.05);
+}
+
+
+.original-name {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+}
+
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.result-card {
+
+    border: 1px solid #eee;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+.result-card img {
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: contain;
+
+    background: #f4f4f4;
+}
+
+
+.result-info {
+
+    padding: 12px;
+
+    text-align: center;
+}
+
+
+.result-info h3 {
+
+    margin: 5px 0 12px;
+
+    font-size: 16px;
+}
+
+
+.download-button {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 8px;
+
+    background: #6c63ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   工具类
+========================================= */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =========================================
+   手机适配
+========================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        width: 94%;
+
+        padding-top: 30px;
+    }
+
+
+    .header h1 {
+
+        font-size: 28px;
+    }
+
+
+    .result-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .result-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}

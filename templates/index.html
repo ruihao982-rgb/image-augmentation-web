@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>图片数据增强工具</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ================================= -->
+    <!-- 标题 -->
+    <!-- ================================= -->
+
+    <div class="header">
+
+        <h1>
+            图片数据增强工具
+        </h1>
+
+        <p>
+            一键生成冷暖色调、放大、对比度增强和模糊图片
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 上传区域 -->
+    <!-- ================================= -->
+
+    <div
+        class="upload-box"
+        id="uploadBox"
+    >
+
+        <div class="upload-icon">
+            📁
+        </div>
+
+        <h2>
+            上传图片
+        </h2>
+
+        <p>
+            点击选择图片，或者将图片拖拽到这里
+        </p>
+
+        <p class="format">
+            支持 JPG、JPEG、PNG、BMP、WEBP
+        </p>
+
+        <input
+            type="file"
+            id="fileInput"
+            multiple
+            accept=".jpg,.jpeg,.png,.bmp,.webp,.tif,.tiff"
+        >
+
+        <button
+            class="select-button"
+            onclick="document.getElementById('fileInput').click()"
+        >
+            选择图片
+        </button>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 已选择图片 -->
+    <!-- ================================= -->
+
+    <div
+        id="selectedSection"
+        class="selected-section hidden"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                已选择图片
+            </h2>
+
+            <span id="fileCount">
+                0 张
+            </span>
+
+        </div>
+
+        <div
+            id="previewContainer"
+            class="preview-container"
+        >
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 开始按钮 -->
+    <!-- ================================= -->
+
+    <button
+        id="augmentButton"
+        class="augment-button"
+        disabled
+    >
+        开始数据增强
+    </button>
+
+
+    <!-- ================================= -->
+    <!-- Loading -->
+    <!-- ================================= -->
+
+    <div
+        id="loading"
+        class="loading hidden"
+    >
+
+        <div class="spinner"></div>
+
+        <p>
+            正在进行数据增强，请稍候...
+        </p>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 结果 -->
+    <!-- ================================= -->
+
+    <div
+        id="resultSection"
+        class="result-section hidden"
+    >
+
+        <div class="result-header">
+
+            <div>
+
+                <h2>
+                    增强结果
+                </h2>
+
+                <p>
+                    每张原图生成 5 张增强图片
+                </p>
+
+            </div>
+
+            <a
+                id="downloadAll"
+                class="download-all"
+                href="#"
+            >
+                ⬇ 下载全部
+            </a>
+
+        </div>
+
+
+        <div
+            id="resultContainer"
+            class="result-container"
+        >
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}"
+></script>
+
+
+</body>
+
+</html>
